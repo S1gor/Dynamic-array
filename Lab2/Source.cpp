@@ -106,6 +106,13 @@ void avArithmeticPositiveElem2(int** matrix, int rows, int cols)
 	}
 }
 
+void freeMatrix(int** matrix, int rows)
+{
+	for (int i = 0; i < rows; i++)
+		free(matrix[i]);
+	free(matrix);
+}
+
 int main()
 {
 	//1. Вычислить среднее арифметическое неотрицательных элементов матрицы, а также определить,
@@ -123,6 +130,7 @@ int main()
 		fillMasManually(mas, rows, cols);
 		outputMasToScreen(mas, rows, cols);
 		avArithmeticPositiveElem1(mas, rows, cols);
+		free(mas);
 		break;
 	}
 	case 2:
@@ -134,6 +142,7 @@ int main()
 		fillMatrixManually(matrix, rows, cols);
 		outputMatrixToScreen(matrix, rows, cols);
 		avArithmeticPositiveElem2(matrix, rows, cols);
+		freeMatrix(matrix, rows);
 		break;
 	}
 	}
