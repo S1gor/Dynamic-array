@@ -34,13 +34,13 @@ void fillMasManually(int* mas, int rows, int cols)
 		for (int j = 0; j < cols; j++)
 		{
 			printf("mas[%d][%d] = ", i, j);
-			scanf_s("%d", (mas + i * cols + j));
+			scanf_s("%d", mas + i * cols + j);
 		}
 }
 
 void fillMatrixManually(int** matrix, int rows, int cols)
 {
-	for(int i=0;i<rows;i++)
+	for (int i = 0; i < rows; i++)
 		for (int j = 0; j < cols; j++)
 		{
 			printf("matrix[%d][%d] = ", i, j);
@@ -81,7 +81,7 @@ void avArithmeticPositiveElem1(int* mas, int rows, int cols)
 		for (int j = 0; j < cols; j++)
 			if (*(mas + i * cols + j) >= 0)
 			{
-				sum += *(mas + i * cols + j);
+				sum += mas[i * cols + j];
 				counter++;
 			}
 		sum /= counter;
@@ -133,6 +133,7 @@ int main()
 		free(mas);
 		break;
 	}
+
 	case 2:
 	{
 		int rows = scanMatrixSize("строк");
